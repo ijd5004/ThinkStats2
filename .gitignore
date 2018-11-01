@@ -65,3 +65,6 @@ docs/_build/
 
 # Jupyter Files
 .ipynb_checkpoints/
+
+# IJD: ThinkStats2
+code/2002FemResp.dat
