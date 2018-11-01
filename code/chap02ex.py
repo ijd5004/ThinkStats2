@@ -21,7 +21,19 @@ def Mode(hist):
 
     returns: value from Hist
     """
-    return 0
+    # input argument is a Hist object; custom built by author
+    # Get the list of values. Loop through values to get a list
+    # of frequencies. Get the max frequency. Find index of value
+    # for associated max frequency.
+
+    v = hist.Values()
+    f = []
+    for value in v:
+        f.append(hist.Freq(value))
+
+    mv = v[f.index(max(f))]
+
+    return mv
 
 
 def AllModes(hist):
@@ -31,7 +43,21 @@ def AllModes(hist):
 
     returns: iterator of value-freq pairs
     """
-    return []
+    # Use built-in sort function
+    # write function for "key" that takes second 
+    # element as sort variable
+
+    def takeSecond(elem):
+        return elem[1]
+
+    v = hist.Values()
+    comb = []
+    for value in v:
+        comb.append((value,hist.Freq(value)))
+
+    comb.sort(key=takeSecond, reverse=True)
+
+    return comb
 
 
 def main(script):
